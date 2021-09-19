@@ -6,8 +6,7 @@ class GaleryController
 {
     public function accueilGalery()
     {
-        $phrase = "HelloWord";
         $view = new View();
-        $view->render('images/index', ['phrase' => $phrase]);
+        $view->render('../views/images/index');
     }
 }
