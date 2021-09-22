@@ -1,7 +1,5 @@
 <?php
-
-
-namespace model;
+namespace Models;
 
 
 class fichier
