@@ -11,9 +11,12 @@ class Route
         $default_controller = $config['default_controller'];
         $default_method = $config['default_method'];
 
+        $c = $_SESSION['Index_path_length'];//Emplacment du controleur dans l'url
+        $m = $_SESSION['Index_path_length'] + 1;//Emplacment de la méthode dans l'url
+
         $url = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
-        $controller = !empty($url[2]) ? $url[2] : $default_controller;
-        $method = !empty($url[3]) ? $url[3] : $default_method;
+        $controller = !empty($url[$c]) ? $url[$c] : $default_controller;
+        $method = !empty($url[$m]) ? $url[$m] : $default_method;
         $class = $namespace."\\".$controller;
 
         if (! class_exists($class)) {
