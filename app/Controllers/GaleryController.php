@@ -11,7 +11,6 @@ class GaleryController
         {
             $_SESSION['ListeFichiers'] = new containerFichier();
         }
-
         $view = new View();
         $view->render('../views/images/index');
     }
