@@ -17,23 +17,12 @@ class containerFichier
 
         $listFiles = scandir('../tmp');
 
-        echo"<pre>";
-        print_r($listFiles);
-        echo "</pre>";
-
         for($i = 2; $i < sizeof($listFiles); $i++)
         {
             $part =  explode('.', trim($listFiles[$i],'.'));
             $unChemin = "../tmp/".$listFiles[$i];
             $this->ajouterFichier($unChemin,$part[0],$part[1]);
         }
-
-        /*foreach($listFiles as $file)
-        {
-            $part = explode('.', trim($file, '.'));
-        }
-
-        $this->ajouterFichier($unChemin,$unNom,$unType);*/
     }
 
     /**
