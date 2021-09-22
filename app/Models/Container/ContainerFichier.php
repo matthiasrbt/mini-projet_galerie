@@ -97,5 +97,54 @@ class containerFichier
         return $liste;
     }
 
+    /** Retourne le type du fichier rechercher à partir du chemin à partir du chemin
+     * @param $type
+     * @return
+     */
+    public function listeLesFichiersD1Type($type)
+    {
+        $liste ='';
+        foreach($this->lesFichiers as $unFichier)
+        {
+            if($unFichier->getType() == $type)
+            {
+                $liste = $liste . 'Chemin : ' . $unFichier->getChemin() . ' | Nom : ' . $unFichier->getNom() . ' | Type ' . $unFichier->getType() . '<br>';
+            }
+        }
+        return $liste;
+    }
+
+    public function listeLesFichiersParType()
+    {
+        $vretour = array();
+        //Insert les image dans le tableau
+        foreach($this->lesFichiers as $unFichier)
+        {
+            if($unFichier->getType() == "jpg")
+            {
+                $vretour[] = array('chemin'=>$unFichier->getChemin(),'nom'=>$unFichier->getNom(),'type'=>$unFichier->getType());
+            }
+        }
+        //Insert les vidéos dans le tableau
+        foreach($this->lesFichiers as $unFichier)
+        {
+            if($unFichier->getType() == "mp4")
+            {
+                $vretour[] = array('chemin'=>$unFichier->getChemin(),'nom'=>$unFichier->getNom(),'type'=>$unFichier->getType());
+            }
+        }
+        //Insert les pdf dans le tableau
+        foreach($this->lesFichiers as $unFichier)
+        {
+            if($unFichier->getType() == "pdf")
+            {
+                $vretour[] = array('chemin'=>$unFichier->getChemin(),'nom'=>$unFichier->getNom(),'type'=>$unFichier->getType());
+            }
+        }
+        return $vretour;//Retourne le tableau contenant les éléments du dossier trier alphabétiuement pas type
+    }
+
+
+
 }
 ?>
