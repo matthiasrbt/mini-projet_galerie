@@ -1,21 +1,15 @@
 <?php namespace util;
 
+require_once '../vendor/autoload.php';
+
 class View {
 
-    public function render($path, $data = false)
+    public function view($path, $data = [])
     {
-        if ($data) {
-            foreach ($data as $key => $value) {
-                ${$key} = $value;
-            }
-        }
-
-        $filepath = "../app/views/$path.php";
-
-        if (file_exists($filepath)) {
-            require $filepath;
-        } else {
-            die("View: $path not found!");
-        }
+        $loader = new \Twig\Loader\FilesystemLoader('../app/views');
+        $twig = new \Twig\Environment($loader, [
+            'cache' => false,
+        ]);
+        echo $twig->render($path, $data);
     }
 }

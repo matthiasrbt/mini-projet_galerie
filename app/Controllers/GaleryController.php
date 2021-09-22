@@ -7,11 +7,13 @@ class GaleryController
 {
     public function accueilGalery()
     {
-        if(empty($_SESSION['ListeFichiers']))
+        if(empty($_SESSION['listeFichiers']))
         {
-            $_SESSION['ListeFichiers'] = new containerFichier();
+            $_SESSION['listeFichiers'] = new containerFichier();
         }
+        $listeFichier = $_SESSION['listeFichiers']->listeLesFichiersParType();
+
         $view = new View();
-        $view->render('../views/images/index');
+        $view->view('card_galerie.twig', ['files' => $listeFichier ]);
     }
 }
