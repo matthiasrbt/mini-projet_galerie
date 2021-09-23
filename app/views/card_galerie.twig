@@ -1,13 +1,19 @@
 {% extends "base.twig" %}
 
 {% block body %}
-    <div class="galery row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin: 15px" >
     {% for file in files %}
         <div class="col">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
+                        {% if file.type == "jpg" %}
+                            <img src="{{ file.chemin }}" width="350" class="img-fluid rounded-start">
+                        {% elseif file.type == "mp4" %}
+                            <video width="350" controls="controls" preload="metadata" class="img-fluid rounded-start">
+                                <source src="{{ file.chemin }}#t=0.5" type="video/mp4">
+                            </video>
+                        {% endif %}
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

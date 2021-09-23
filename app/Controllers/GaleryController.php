@@ -2,6 +2,7 @@
 
 use util\View;
 use Models\containerFichier;
+use Models\fichier;
 
 class GaleryController
 {
@@ -12,7 +13,6 @@ class GaleryController
             $_SESSION['listeFichiers'] = new containerFichier();
         }
         $listeFichier = $_SESSION['listeFichiers']->listeLesFichiersParType();
-
         $view = new View();
         $view->view('card_galerie.twig', ['files' => $listeFichier ]);
     }

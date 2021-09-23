@@ -69,7 +69,4 @@ class fichier
     {
         $this->type = $type;
     }
-
-
-
 }
