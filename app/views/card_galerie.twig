@@ -13,6 +13,8 @@
                             <video width="350" controls="controls" preload="metadata" class="img-fluid rounded-start">
                                 <source src="{{ file.chemin }}#t=0.5" type="video/mp4">
                             </video>
+                        {% elseif file.type == "pdf" %}
+                            <img src="{{ file.miniature }}" width="350" class="img-fluid rounded-start"/>
                         {% endif %}
                     </div>
                     <div class="col-md-8">
