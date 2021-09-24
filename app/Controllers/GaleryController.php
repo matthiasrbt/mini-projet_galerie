@@ -29,14 +29,9 @@ class GaleryController
 
                 //<embed width="191" height="207" name="plugin" src="http://localhost:54149/Documento/VersaoView?chave=FDC4875EE17FB17B" type="application/pdf">
             }
-        }*/
+        } */
         $view = new View();
         $view->view('card_galerie.twig', ['files' => $listeFichier ]);
     }
 
-    public function uploadFile()
-    {
-        $view = new View();
-        $view->view('upload.twig', '');
-    }
 }
